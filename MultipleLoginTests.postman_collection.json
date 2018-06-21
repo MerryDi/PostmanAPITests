@@ -1,0 +1,652 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MultipleLoginTests",
+		"_postman_id": "b7946449-e827-d90b-b63b-d21328406ab5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /Registration/get-lead",
+			"description": "",
+			"item": [
+				{
+					"name": "https://test-api.umarkets.com/Registration/get-lead?api_key=LeadRedirectionHandler%20&mmLeadIdentity=230692ca-a75f-48bc-a61e-e4f63aba47d5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									"\r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"postman.setGlobalVariable(\"userEmail\", jsonData.emaill );\r",
+									"tests[\"User guid is \" + jsonData.guid] = jsonData.guid == \"230692ca-a75f-48bc-a61e-e4f63aba47d5\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "https://test-api.umarkets.com/Registration/get-lead?api_key=LeadRedirectionHandler%20&mmLeadIdentity=230692ca-a75f-48bc-a61e-e4f63aba47d5",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"Registration",
+								"get-lead"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "LeadRedirectionHandler%20",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "mmLeadIdentity",
+									"value": "230692ca-a75f-48bc-a61e-e4f63aba47d5",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "https://test-api.umarkets.com/Account/logon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									"tests[\"Response time is less than 200ms\"] = responseTime < 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://test-api.umarkets.com/Account/logon",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": {{userEmail}} ,\r\n  \"password\": \"112233aaa\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET /Registration/lead",
+			"description": "",
+			"item": [
+				{
+					"name": "https://test-api.umarkets.com/Registration/lead?model.firstName=Tom&model.lastName=Smith&model.phoneCountry=49&model.phoneOperator=157&model.phoneNumber=72811075&model.email=m.e.rrydi2014%40gmail.com&model.country=DE&api_key=LeadRedirectionHandler%20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var userEmail = postman.getResponseCookie(\"mmEmail\").value;\r",
+									"\r",
+									"postman.setGlobalVariable(\"userEmail\", userEmail );\r",
+									"\r",
+									"tests[\"leadGuid is \" + jsonData.leadGuid] = jsonData.leadGuid == \"230692ca-a75f-48bc-a61e-e4f63aba47d5\";\r",
+									"tests[\"user email is \" + userEmail.toString()] = userEmail == \"stupkan@gmail.com\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "https://test-api.umarkets.com/Registration/lead?model.firstName=Tom&model.lastName=Smith&model.phoneCountry=49&model.phoneOperator=157&model.phoneNumber=72811075&model.email=dfsgsdfgdfgs014%40gmail.com&model.country=DE&api_key=LeadRedirectionHandler%20",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"Registration",
+								"lead"
+							],
+							"query": [
+								{
+									"key": "model.firstName",
+									"value": "Tom",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.lastName",
+									"value": "Smith",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.phoneCountry",
+									"value": "49",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.phoneOperator",
+									"value": "157",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.phoneNumber",
+									"value": "72811075",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.email",
+									"value": "dfsgsdfgdfgs014%40gmail.com",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.country",
+									"value": "DE",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "api_key",
+									"value": "LeadRedirectionHandler%20",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "https://test-api.umarkets.com/Account/logon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://test-api.umarkets.com/Account/logon",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"password\": \"112233aaa\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET /Registration/second",
+			"description": "",
+			"item": [
+				{
+					"name": "https://test-api.umarkets.com/Registration/second?model.password=112233aaa&model.terms=true&api_key=LeadRedirectionHandler%20&mmLeadIdentity =230692ca-a75f-48bc-a61e-e4f63aba47d5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									"var userEmail = postman.getResponseCookie(\"mmEmail\").value;\r",
+									"postman.setGlobalVariable(\"userEmail\", userEmail );\r",
+									"tests[\"user email is \" + userEmail.toString()] = userEmail == \"stupkan@gmail.com\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "https://test-api.umarkets.com/Registration/second?model.password=112233aaa&model.terms=true&api_key=LeadRedirectionHandler%20&mmLeadIdentity =230692ca-a75f-48bc-a61e-e4f63aba47d5",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"Registration",
+								"second"
+							],
+							"query": [
+								{
+									"key": "model.password",
+									"value": "112233aaa",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.terms",
+									"value": "true",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "api_key",
+									"value": "LeadRedirectionHandler%20",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "mmLeadIdentity ",
+									"value": "230692ca-a75f-48bc-a61e-e4f63aba47d5",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "mmLeadIdentity",
+									"value": "230692ca-a75f-48bc-a61e-e4f63aba47d5"
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "https://test-api.umarkets.com/Account/logon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://test-api.umarkets.com/Account/logon",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"password\": \"112233aaa\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET /Registration/full",
+			"description": "",
+			"item": [
+				{
+					"name": "test-r.maximarkets.org?linkid=oth-site-ban-crypto-ru&sky=ritas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "test-r.maximarkets.org?linkid=oth-site-ban-crypto-ru&sky=ritas",
+							"host": [
+								"test-r",
+								"maximarkets",
+								"org"
+							],
+							"query": [
+								{
+									"key": "linkid",
+									"value": "oth-site-ban-crypto-ru",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "sky",
+									"value": "ritas",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "https://test-api.umarkets.com/Registration/full?model.password=112233aaa&model.firstName=Tom&model.lastName=Smith&model.phoneCountry=49&model.phoneOperator=157&model.phoneNumber=72811075&model.email=m.e.r.r.ydi2014%40gmail.com&model.terms=true&model.country=DE&api_key=LeadRedirectionHandler%20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var userEmail = postman.getResponseCookie(\"mmEmail\").value;\r",
+									"\r",
+									"postman.setGlobalVariable(\"userEmail\", userEmail );\r",
+									"\r",
+									"tests[\"leadGuid is \" + jsonData.leadGuid] = jsonData.leadGuid !== \"\";\r",
+									"tests[\"user email is \" + userEmail.toString()] = userEmail !== \"\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "https://test-api.umarkets.com/Registration/full?model.password=112233aaa&model.firstName=Tom&model.lastName=Smith&model.phoneCountry=49&model.phoneOperator=157&model.phoneNumber=72811075&model.email=gdafgfdgag%40gmail.com&model.terms=true&model.country=DE&api_key=LeadRedirectionHandler%20",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"Registration",
+								"full"
+							],
+							"query": [
+								{
+									"key": "model.password",
+									"value": "112233aaa",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.firstName",
+									"value": "Tom",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.lastName",
+									"value": "Smith",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.phoneCountry",
+									"value": "49",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.phoneOperator",
+									"value": "157",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.phoneNumber",
+									"value": "72811075",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.email",
+									"value": "gdafgfdgag%40gmail.com",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.terms",
+									"value": "true",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.country",
+									"value": "DE",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "api_key",
+									"value": "LeadRedirectionHandler%20",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "https://test-api.umarkets.com/Account/logon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://test-api.umarkets.com/Account/logon",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"password\": \"112233aaa\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET /Registration/account",
+			"description": "",
+			"item": [
+				{
+					"name": "https://test-api.umarkets.com/Registration/account?model.password=112233aaa&model.email=m.er.rydi2014%40gmail.com&api_key=LeadRedirectionHandler%20",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									"var jsonData = JSON.parse(responseBody);\r",
+									"var userEmail = postman.getResponseCookie(\"mmEmail\").value;\r",
+									"\r",
+									"postman.setGlobalVariable(\"userEmail\", userEmail );\r",
+									"\r",
+									"tests[\"leadGuid is \" + jsonData.leadGuid] = jsonData.leadGuid !== \"\";\r",
+									"tests[\"user email is \" + userEmail.toString()] = userEmail !== \"\";"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "https://test-api.umarkets.com/Registration/account?model.password=112233aaa&model.email=gdfsgdfsgfdg%40gmail.com&api_key=LeadRedirectionHandler%20",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"Registration",
+								"account"
+							],
+							"query": [
+								{
+									"key": "model.password",
+									"value": "112233aaa",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "model.email",
+									"value": "gdfsgdfsgfdg%40gmail.com",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "api_key",
+									"value": "LeadRedirectionHandler%20",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "https://test-api.umarkets.com/Account/logon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+									" \r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://test-api.umarkets.com/Account/logon",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"password\": \"112233aaa\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,194 @@
+{
+	"info": {
+		"_postman_id": "fd59a9e9-933c-4610-b7fc-63a80e269601",
+		"name": "31/05/2018 - ProcessDeposit + Tranzactions",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tranzactions",
+			"description": "",
+			"item": [
+				{
+					"name": "https://test-back.maxi-crm.com/api/Login/logon?api_key=log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "590dae17-1127-42b1-8b71-f7f22f4bacdd",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"login\": \"aleksandrsl\",\r\n  \"password\": \"test\"\r\n}"
+						},
+						"url": {
+							"raw": "https://test-api.umarkets.com/CardDeposit/logon",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"CardDeposit",
+								"logon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "test-report-api.maxi-crm.com/performance/transactions?date-start=2018-01-24%2013:09&date-end=2018-05-24%2020:09&transaction-type=Deposit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is \" + responseCode.code ] = responseCode.code === 200;",
+									" ",
+									"//var jsonData = JSON.parse(responseBody);",
+									"tests[\"jsonData : \" + responseBody] = responseBody !== \"\";",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "test-report-api.maxi-crm.com/performance/transactions?date-start=2018-05-14%2013:09&date-end=2018-05-24%2020:09&transaction-type=Deposit",
+							"host": [
+								"test-report-api",
+								"maxi-crm",
+								"com"
+							],
+							"path": [
+								"performance",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "date-start",
+									"value": "2018-05-14%2013:09"
+								},
+								{
+									"key": "date-end",
+									"value": "2018-05-24%2020:09"
+								},
+								{
+									"key": "transaction-type",
+									"value": "Deposit"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProcessDeposit",
+			"description": "",
+			"item": [
+				{
+					"name": "https://test-api.umarkets.com/Account/logon",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2c0347dc-8ae0-4cb7-b7bb-65ea0b8b0f10",
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									" ",
+									"var jsonData = JSON.parse(responseBody);",
+									"var pin =  jsonData.tradingPlatformAccounts[0].tradingAccountId;",
+									"tests[\"pin : \" + pin] = pin !== \"\";",
+									"",
+									"postman.setGlobalVariable(\"pin\", Number(pin) ); "
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"password\": \"112233aaa\"\r\n}"
+						},
+						"url": {
+							"raw": "https://test-api.umarkets.com/Account/logon",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"Account",
+								"logon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://test-api.umarkets.com/PraxisPay/ProcessDeposit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pin\": {{pin}},\r\n  \"traceId\": 0,\r\n  \"pp\": \"PraxisPay\",\r\n  \"amount\": 3000,\r\n  \"currency\": \"EUR\",\r\n  \"transactionId\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "https://test-api.umarkets.com/PraxisPay/ProcessDeposit",
+							"protocol": "https",
+							"host": [
+								"test-api",
+								"umarkets",
+								"com"
+							],
+							"path": [
+								"PraxisPay",
+								"ProcessDeposit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,146 @@
+{
+	"id": "e70c2c8e-4ffe-43f6-9b67-739568f8132e",
+	"name": "Umarkets",
+	"description": "https://test-api.umarkets.com/swagger/ui/index#!/Account/Account_activity\n\nhttps://test-my.umarkets.com/?lang=en#myaccount\n\nhttps://test-back.maxi-crm.com/#login\n\nhttps://test-trading.umarkets.com/login.html?REGENERATE_ERROR=300\n\n-----------------------------------------------------------\n\n\nhttps://test-back.maxi-crm.com/api/swagger/ui/index#/",
+	"order": [
+		"edf1f8a6-9ba0-a80b-67ea-646e6a766702",
+		"aa165064-1ee7-1332-068e-5e078831e829",
+		"1c91de43-34d1-48f9-4f42-9271b1817872",
+		"9083e02b-ef42-ab1f-ee52-2f44feb5dd4e"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 0,
+	"owner": "650837",
+	"public": false,
+	"requests": [
+		{
+			"id": "1c91de43-34d1-48f9-4f42-9271b1817872",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://test-api.umarkets.com/Account/lead",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "e70c2c8e-4ffe-43f6-9b67-739568f8132e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "https://test-api.umarkets.com/Account/lead",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1527170394659,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n    \"id\": 2963860,\n    \"guid\": \"232a3f40-00e4-41bc-a1ea-62a52ee76358\",\n    \"firstName\": \"khk\",\n    \"lastName\": \"hkhkh\",\n    \"email\": \"merrydi2014+1@gmail.com\",\n    \"areTermsAccepted\": true,\n    \"countryId\": 276,\n    \"city\": \"hkhk\",\n    \"phone1\": {\n        \"country\": \"7777\",\n        \"operator\": \"777\",\n        \"visiblePart\": \"7\",\n        \"invisiblePart\": \"7777\"\n    },\n    \"phone2\": {},\n    \"phone3\": {},\n    \"deposited\": false,\n    \"showBonus\": false,\n    \"billingFirstName\": \"khk\",\n    \"billingLastName\": \"hkhkh\",\n    \"billingCountryId\": 276,\n    \"billingCity\": \"hkhk\",\n    \"bonusAmount\": 100,\n    \"tradingPlatformAccounts\": [\n        {\n            \"tradingAccountId\": 92459873,\n            \"id\": 2963861,\n            \"accountId\": \"900066623\",\n            \"currency\": \"EUR\",\n            \"userLogin\": \"900066623\",\n            \"tradingPlatformId\": 100007,\n            \"tradingPlatform\": \"MetaTrader4\",\n            \"tradingPlatformTypeName\": \"MetaTrader4\",\n            \"balance\": 0,\n            \"freeBalance\": 0,\n            \"openPnl\": 0,\n            \"equity\": 0,\n            \"updated\": \"2018-05-24T10:32:18.9\",\n            \"email\": \"merrydi2014+1@gmail.com\",\n            \"nick\": \"account1\"\n        },\n        {\n            \"tradingAccountId\": 92459875,\n            \"id\": 2963868,\n            \"accountId\": \"4741F382-A0AA-4DD7-8621-F7319BD3DC48\",\n            \"currency\": \"EUR\",\n            \"userLogin\": \"merrydi2014+1@gmail.com\",\n            \"tradingPlatformId\": 372,\n            \"tradingPlatform\": \"Web Platform\",\n            \"tradingPlatformTypeName\": \"Web Platform\",\n            \"balance\": 0,\n            \"freeBalance\": 0,\n            \"openPnl\": 0,\n            \"equity\": 0,\n            \"updated\": \"2018-05-24T10:34:30.04\",\n            \"email\": \"merrydi2014+1@gmail.com\",\n            \"nick\": \"account2\"\n        }\n    ],\n    \"requiredDigitalSignature\": false,\n    \"languageId\": 38\n}"
+		},
+		{
+			"id": "9083e02b-ef42-ab1f-ee52-2f44feb5dd4e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://test-api.umarkets.com/Account/complete-registration",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "e70c2c8e-4ffe-43f6-9b67-739568f8132e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "https://test-api.umarkets.com/Account/complete-registration",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1527172282285,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n  \"phone1\": {\r\n    \"countryCode\": \"7777\",\r\n    \"number\": \"77777777\"\r\n  },\r\n  \"phone2\": {\r\n    \"number\": \"\"\r\n  },\r\n  \"phone3\": {\r\n    \"number\": \"\"\r\n  },\r\n  \"leadAddress\": {\r\n    \"id\": 156798,\r\n    \"leadId\": 2963860,\r\n    \"countryId\": 276,\r\n    \"city\": \"hkhk\"\r\n  },\r\n  \"id\": 2963860,\r\n  \"guid\": \"232a3f40-00e4-41bc-a1ea-62a52ee76358\",\r\n  \"firstName\": \"khk\",\r\n  \"lastName\": \"hkhkh\",\r\n  \"email\": \"merrydi2014+1@gmail.com\",\r\n  \"areTermsAccepted\": true,\r\n  \"countryId\": 276,\r\n  \"city\": \"hkhk\",\r\n  \"deposited\": false,\r\n  \"showBonus\": false,\r\n  \"billingFirstName\": \"khk\",\r\n  \"billingLastName\": \"hkhkh\",\r\n  \"billingCountryId\": 276,\r\n  \"billingCity\": \"hkhk\",\r\n  \"bonusAmount\": 100,\r\n  \"tradingPlatformAccounts\": [\r\n    {\r\n      \"tradingAccountId\": 92459873,\r\n      \"id\": 2963861,\r\n      \"accountId\": \"900066623\",\r\n      \"currency\": \"EUR\",\r\n      \"userLogin\": \"900066623\",\r\n      \"tradingPlatformId\": 100007,\r\n      \"tradingPlatform\": \"MetaTrader4\",\r\n      \"tradingPlatformTypeName\": \"MetaTrader4\",\r\n      \"balance\": 0,\r\n      \"freeBalance\": 0,\r\n      \"openPnl\": 0,\r\n      \"equity\": 0,\r\n      \"updated\": \"2018-05-24T10:32:18.9\",\r\n      \"email\": \"merrydi2014+1@gmail.com\",\r\n      \"nick\": \"account1\"\r\n    },\r\n    {\r\n      \"tradingAccountId\": 92459875,\r\n      \"id\": 2963868,\r\n      \"accountId\": \"4741F382-A0AA-4DD7-8621-F7319BD3DC48\",\r\n      \"currency\": \"EUR\",\r\n      \"userLogin\": \"merrydi2014+1@gmail.com\",\r\n      \"tradingPlatformId\": 372,\r\n      \"tradingPlatform\": \"Web Platform\",\r\n      \"tradingPlatformTypeName\": \"Web Platform\",\r\n      \"balance\": 0,\r\n      \"freeBalance\": 0,\r\n      \"openPnl\": 0,\r\n      \"equity\": 0,\r\n      \"updated\": \"2018-05-24T10:34:30.04\",\r\n      \"email\": \"merrydi2014+1@gmail.com\",\r\n      \"nick\": \"account2\"\r\n    }\r\n  ],\r\n  \"crmCountryCode\": \"TZ\",\r\n  \"requiredDigitalSignature\": false,\r\n  \"complianceStatus\": \"missing\",\r\n  \"languageId\": 38\r\n}\r\n"
+		},
+		{
+			"id": "aa165064-1ee7-1332-068e-5e078831e829",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://test-api.umarkets.com/Account/SetAuthCookie",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "e70c2c8e-4ffe-43f6-9b67-739568f8132e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "https://test-api.umarkets.com/Account/SetAuthCookie",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1527162079163,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n  \"id\": 2963860,\r\n  \"guid\": \"232a3f40-00e4-41bc-a1ea-62a52ee76358\",\r\n  \"firstName\": \"khk\",\r\n  \"lastName\": \"hkhkh\",\r\n  \"email\": \"merrydi2014+1@gmail.com\",\r\n  \"areTermsAccepted\": true,\r\n  \"countryId\": 276,\r\n  \"city\": \"hkhk\",\r\n  \"phone1\": {\r\n    \"country\": \"7777\",\r\n    \"operator\": \"777\",\r\n    \"visiblePart\": \"7\",\r\n    \"invisiblePart\": \"7777\"\r\n  },\r\n  \"phone2\": {},\r\n  \"phone3\": {},\r\n  \"deposited\": false,\r\n  \"showBonus\": false,\r\n  \"billingFirstName\": \"khk\",\r\n  \"billingLastName\": \"hkhkh\",\r\n  \"billingCountryId\": 276,\r\n  \"billingCity\": \"hkhk\",\r\n  \"bonusAmount\": 100,\r\n  \"tradingPlatformAccounts\": [\r\n    {\r\n      \"tradingAccountId\": 92459873,\r\n      \"id\": 2963861,\r\n      \"accountId\": \"900066623\",\r\n      \"currency\": \"EUR\",\r\n      \"userLogin\": \"900066623\",\r\n      \"tradingPlatformId\": 100007,\r\n      \"tradingPlatform\": \"MetaTrader4\",\r\n      \"tradingPlatformTypeName\": \"MetaTrader4\",\r\n      \"balance\": 0,\r\n      \"freeBalance\": 0,\r\n      \"openPnl\": 0,\r\n      \"equity\": 0,\r\n      \"updated\": \"2018-05-24T10:32:18.9\",\r\n      \"email\": \"merrydi2014+1@gmail.com\",\r\n      \"nick\": \"account1\"\r\n    },\r\n    {\r\n      \"tradingAccountId\": 92459875,\r\n      \"id\": 2963868,\r\n      \"accountId\": \"4741F382-A0AA-4DD7-8621-F7319BD3DC48\",\r\n      \"currency\": \"EUR\",\r\n      \"userLogin\": \"merrydi2014+1@gmail.com\",\r\n      \"tradingPlatformId\": 372,\r\n      \"tradingPlatform\": \"Web Platform\",\r\n      \"tradingPlatformTypeName\": \"Web Platform\",\r\n      \"balance\": 0,\r\n      \"freeBalance\": 0,\r\n      \"openPnl\": 0,\r\n      \"equity\": 0,\r\n      \"updated\": \"2018-05-24T10:34:30.04\",\r\n      \"email\": \"merrydi2014+1@gmail.com\",\r\n      \"nick\": \"account2\"\r\n    }\r\n  ],\r\n  \"requiredDigitalSignature\": false,\r\n  \"languageId\": 38\r\n}"
+		},
+		{
+			"id": "edf1f8a6-9ba0-a80b-67ea-646e6a766702",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "https://test-api.umarkets.com/Account/logon",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\r\n \r\ntests[\"Response time is less than 200ms\"] = responseTime < 200;\r\n \r\nvar expected = \"merrydi2014+1@gmail.com\"\r\ntests[\"Body cointains string: \" + expected] = responseBody.has(expected);\r\n \r\nvar jsonData = JSON.parse(responseBody);\r\nvar id =  2963860;\r\ntests[\"Verify id is: \" + id] = jsonData.id === id;\r\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1527176860798,
+			"name": "https://test-api.umarkets.com/Account/logon",
+			"description": "",
+			"collectionId": "e70c2c8e-4ffe-43f6-9b67-739568f8132e",
+			"responses": [],
+			"rawModeData": "{\r\n  \"email\": \"merrydi2014+1@gmail.com\",\r\n  \"password\": \"112233aaa\"\r\n}\r\n"
+		}
+	]
+}

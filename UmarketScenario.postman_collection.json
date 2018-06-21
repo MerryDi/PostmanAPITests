@@ -1,0 +1,211 @@
+{
+	"variables": [],
+	"info": {
+		"name": "UmarketScenario",
+		"_postman_id": "6d6e5467-957a-99ca-b407-6e65ea905ce3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://test-api.umarkets.com/Account/logon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;\r",
+							" \r",
+							"tests[\"Response time is less than 200ms\"] = responseTime < 200;\r",
+							"\r",
+							" \r",
+							"var expected = \"stupkan@gmail.com\";\r",
+							"tests[\"Body cointains email string: \" + expected] = responseBody.has(expected);\r",
+							"postman.setGlobalVariable(\"expectedEmail\", \"stupkan@gmail.com\" ); \r",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://test-api.umarkets.com/Account/logon",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"password\": \"112233aaa\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://test-api.umarkets.com/Account/complete-registration",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Phone1 is set up as requested\"] = jsonData.phone1.number == \"0668523636\";",
+							"tests[\"Phone2 is set up as requested\"] = jsonData.phone2.number == \"0502582211\";",
+							"tests[\"Phone3 is set up as requested\"] = jsonData.phone3.number == \"0678823100\";",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://test-api.umarkets.com/Account/complete-registration",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"phone1\": {\r\n    \"countryCode\": \"038\",\r\n    \"number\": \"0668523636\"\r\n  },\r\n  \"phone2\": {\r\n    \"countryCode\": \"038\",\r\n    \"number\": \"0502582211\"\r\n  },\r\n  \"phone3\": {\r\n    \"countryCode\": \"038\",\r\n    \"number\": \"0678823100\"\r\n  },\r\n  \"id\": 00000000121,\r\n  \"firstName\": \"Natalia\",\r\n  \"lastName\": \"Stupka\",\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"countryId\": 276,\r\n  \"city\": \"Dnipro\",\r\n  \"registrationComment\": \"testing purpose\",\r\n  \"areTermsAccepted\": true\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://test-api.umarkets.com/Account/logoff",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Successful logout Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://test-api.umarkets.com/Account/logoff",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://test-api.umarkets.com/Trading/accounts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"var token =  jsonData.token;",
+							"tests[\"Token is set up successfuly to : \" + token] = responseBody.has(token);",
+							"postman.setGlobalVariable(\"token\", jsonData.token );",
+							"",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://test-api.umarkets.com/Trading/accounts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"stupkan@gmail.com\",\r\n  \"password\": \"ddb3c59286d53039e61a741b5686e3ef50d41e269fe04f3eb64cbe2facdad252\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://test-api.umarkets.com/Account/logonWithToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Successful logonWithToken\"] = responseBody.has(\"stupkan@gmail.com\");",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://test-api.umarkets.com/Account/logonWithToken?token={{token}}",
+					"protocol": "https",
+					"host": [
+						"test-api",
+						"umarkets",
+						"com"
+					],
+					"path": [
+						"Account",
+						"logonWithToken"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
